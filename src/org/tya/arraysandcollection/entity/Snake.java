@@ -9,7 +9,7 @@ package org.tya.arraysandcollection.entity;
  *
  * @author student
  */
-public class Snake implements IAnimal{
+public class Snake extends AbstractAnimal implements IAnimal{
 
     @Override
     public void go() {

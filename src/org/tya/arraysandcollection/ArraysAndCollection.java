@@ -7,6 +7,8 @@ package org.tya.arraysandcollection;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.tya.arraysandcollection.controller.AnimalController;
+import org.tya.arraysandcollection.entity.AbstractAnimal;
 import org.tya.arraysandcollection.entity.Bird;
 import org.tya.arraysandcollection.entity.IAnimal;
 import org.tya.arraysandcollection.entity.Snake;
@@ -97,16 +99,63 @@ public class ArraysAndCollection {
         //Snake snake = new Snake();
         //Bird bird = new Bird();
         
-        IAnimal animal = new Snake();
-        IAnimal animal2 = new Bird();
+        //IAnimal animal = new Snake();
+        AbstractAnimal animal = new Snake();
+        animal.weight = 1f;
+        animal.speed = 10;
         
-        List<IAnimal> animals = new ArrayList<>();
+        //IAnimal animal2 = new Bird();
+        AbstractAnimal animal2 = new Bird();
+        animal2.weight = 2f;
+        animal2.speed = 20;
+        
+        //IAnimal animal3 = new Bird();
+        AbstractAnimal animal3 = new Bird();
+        animal3.weight = 2.5f;
+        animal3.speed = 15;
+        
+        //IAnimal animal4 = new Snake();
+        AbstractAnimal animal4 = new Snake();
+        animal4.weight = 0.5f;
+        animal4.speed = 8;
+        
+        //List<IAnimal> animals = new ArrayList<>();
+        List<AbstractAnimal> animals = new ArrayList<>();
+        animals.add(animal3);
         animals.add(animal);
         animals.add(animal2);
+        animals.add(animal4);
         
-        for (IAnimal animal1 : animals) {
+        /*for (IAnimal animal1 : animals) {
             animal1.go();
+        }*/
+        
+        for (AbstractAnimal animal1 : animals) {
+            System.out.printf("weight = %f; speed = %d\n", animal1.weight, animal1.speed);
+        }
+        
+        AnimalController ac = new AnimalController();
+        //ac.order(animals);
+        /*ac.order(animals, (a1, a2) -> {
+            return a1.weight > a2.weight;
+        });*/
+        
+        /*ac.order(animals, (a1, a2) -> {
+            return a1.weight < a2.weight;
+        });*/
+        
+        ac.order(animals, (a1, a2) -> {
+            return a1.speed < a2.speed;
+        });
+        
+        System.out.println();
+        
+        for (AbstractAnimal animal1 : animals) {
+            System.out.printf("weight = %f; speed = %d\n", animal1.weight, animal1.speed);
         }
     }
     
+    /*TODO: создать класс "Студент" и класс с методом сортировки,
+    настраиваемым при помощи лямбда-функции. Сделать сортировки коллекции из 5
+    студентов по возрасту и по среднему баллу*/
 }

@@ -9,11 +9,9 @@ package org.tya.arraysandcollection.entity;
  *
  * @author student
  */
-public class Bird extends AbstractAnimal implements IAnimal{
-
-    @Override
-    public void go() {
-        System.out.println("лечу");
-    }
+public class AbstractAnimal {
     
+    public float weight;
+    public int speed;
+    public int age;
 }
